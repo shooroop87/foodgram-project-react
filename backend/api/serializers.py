@@ -28,9 +28,6 @@ class UserSerializer(UserSerializer):
         )
 
     def get_is_subscribed(self, obj):
-        '''
-        Проверяет подписан ли текущий пользователь на автора
-        '''
         user = self.context.get('request').user
         if user is None or user.is_anonymous:
             return False
@@ -82,6 +79,7 @@ class IngredientRecipeWriteSerializer(serializers.ModelSerializer):
 
 class TagSerializer(serializers.ModelSerializer):
     id = serializers.PrimaryKeyRelatedField(read_only=True)
+
     class Meta:
         model = Tag
         fields = (
@@ -151,7 +149,6 @@ class RecipeWriteSerializer(serializers.ModelSerializer):
         )
 
     def create_ingredients(self, ingredients, recipe):
-        '''Метод создания ингредиентов с количеством ингредиентов.'''
         for ingredient in ingredients:
             ingredients, status = IngredientRecipes.objects.get_or_create(
                 recipe=recipe,
