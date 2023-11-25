@@ -13,7 +13,7 @@ DEBUG = os.getenv('DEBUG_VALUE') == 'True'
 ALLOWED_HOSTS = str(os.getenv("DJANGO_ALLOWED_HOSTS")).split(' ')
 
 
-## Application definition
+# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
