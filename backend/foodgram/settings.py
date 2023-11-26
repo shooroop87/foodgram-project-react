@@ -62,7 +62,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'foodgram.wsgi.application'
 
 
-# Database settings
+# Database
 
 DATABASES = {
     'default': {
