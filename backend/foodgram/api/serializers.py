@@ -13,6 +13,7 @@ from users.models import Subscription, User
 
 User = get_user_model()
 
+
 class IngredientSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ingredient
@@ -56,7 +57,6 @@ class UserSerializer(serializers.ModelSerializer):
         )
 
 
-
 class SubscribeSerializer(ModelSerializer):
 
     recipes_count = SerializerMethodField()
@@ -76,7 +76,8 @@ class SubscribeSerializer(ModelSerializer):
     def validate(self, data):
         subscribing = self.instance
         user = self.context.get("request").user
-        if Subscription.objects.filter(subscribing=subscribing, user=user).exists():
+        if Subscription.objects.filter(
+            subscribing=subscribing, user=user).exists():
             raise ValidationError(
                 detail="Вы уже подписаны на этого пользователя!",
                 code=status.HTTP_400_BAD_REQUEST,
@@ -229,7 +230,6 @@ class FavoriteSerializer(serializers.ModelSerializer):
         if self.Meta.model.objects.filter(user=user, recipe=recipe).exists():
             raise ValidationError({"error": "Этот рецепт уже добавлен"})
         return data
-
 
 
 class BasketSerializer(FavoriteSerializer):

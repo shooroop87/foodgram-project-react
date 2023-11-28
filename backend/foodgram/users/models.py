@@ -29,7 +29,6 @@ class User(AbstractUser):
         verbose_name = "Пользователь"
         verbose_name_plural = 'Пользователи'
 
-
     def __str__(self):
         return self.username
 
@@ -57,7 +56,8 @@ class Subscription(models.Model):
         ]
 
     def __str__(self):
-        return f"Автор: {self.user.username}, подписчик: {self.subscribing.username}"
+        return f"Автор: {self.user.username}, 
+        подписчик: {self.subscribing.username}"
 
     def following_self(self):
         if self.user == self.subscribing:
