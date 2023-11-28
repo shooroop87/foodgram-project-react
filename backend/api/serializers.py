@@ -1,6 +1,6 @@
 
 from django.contrib.auth import get_user_model
-from djoser.serializers import UserSerializer
+from djoser.serializers import UserSerializer, UserCreateSerializer
 from drf_extra_fields.fields import Base64ImageField
 from rest_framework import serializers
 from rest_framework.fields import SerializerMethodField
@@ -35,6 +35,23 @@ class UserSerializer(UserSerializer):
             user=user,
             author=obj
         ).exists()
+    
+
+class CreateUserSerializer(UserCreateSerializer):
+
+    class Meta:
+        model = User
+        fields = (
+            'email',
+            'id',
+            'username',
+            'first_name',
+            'last_name',
+            'password',
+        )
+        extra_kwargs = {
+            'password':
+            {'required': True, 'write_only': True}}
 
 
 class IngredientSerializer(serializers.ModelSerializer):
