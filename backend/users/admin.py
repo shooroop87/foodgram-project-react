@@ -1,17 +1,14 @@
 from django.contrib import admin
 
-from users.models import Subscription, User
+from .models import User
 
 
 class UserAdmin(admin.ModelAdmin):
-    list_display = ('id', 'first_name', 'last_name', 'email')
-    search_fields = ('first_name',)
-    list_filter = ('email', 'first_name')
-
-
-class SubscriptionAdmin(admin.ModelAdmin):
-    list_display = ('user', 'author')
+    list_display = ('username', 'email', 'first_name', 'last_name')
+    search_fields = ('username', 'email')
+    list_filter = ('first_name', 'last_name')
+    ordering = ('username', )
+    empty_value_display = 'Пусто'
 
 
 admin.site.register(User, UserAdmin)
-admin.site.register(Subscription, SubscriptionAdmin)
