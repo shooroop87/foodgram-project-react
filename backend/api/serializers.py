@@ -35,7 +35,7 @@ class UserSerializer(UserSerializer):
             user=user,
             author=obj
         ).exists()
-    
+
 
 class CreateUserSerializer(UserCreateSerializer):
 
