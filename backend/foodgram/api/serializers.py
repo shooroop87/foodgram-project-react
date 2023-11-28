@@ -76,8 +76,8 @@ class SubscribeSerializer(ModelSerializer):
     def validate(self, data):
         subscribing = self.instance
         user = self.context.get("request").user
-        if Subscription.objects.filter(
-            subscribing=subscribing, user=user).exists():
+        if Subscription.objects.filter(subscribing=subscribing,
+                                       user=user).exists():
             raise ValidationError(
                 detail="Вы уже подписаны на этого пользователя!",
                 code=status.HTTP_400_BAD_REQUEST,
@@ -97,8 +97,9 @@ class SubscribeSerializer(ModelSerializer):
 
     def get_recipes(self, obj):
         recipes = obj.recipes.all()(author=obj.user)
-        serializer = RecipeCartSerializer(recipes, many=True,
-                                           read_only=True)
+        serializer = RecipeCartSerializer(recipes,
+                                          many=True,
+                                          read_only=True)
         return serializer.data
 
 
@@ -141,7 +142,6 @@ class RecipeSerializer(serializers.ModelSerializer):
             raise ValidationError("Укажите хотя бы один тег.")
         if len(tags) != len(set(tags)):
             raise ValidationError("Теги не должны повторяться.")
-
 
     def validate_ingredients(self, ingredients):
         ingredients_list = []

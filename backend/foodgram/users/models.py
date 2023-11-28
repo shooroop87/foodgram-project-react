@@ -56,8 +56,7 @@ class Subscription(models.Model):
         ]
 
     def __str__(self):
-        return f"Автор: {self.user.username}, 
-        подписчик: {self.subscribing.username}"
+        return f"Автор: {self.user.username} и {self.subscribing.username}"
 
     def following_self(self):
         if self.user == self.subscribing:
