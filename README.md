@@ -16,13 +16,17 @@ Foodgram это веб сервис, на котором пользовател�
 
 **1. ### Подготовка образов:**
 Зайти в папки infra, backend, frontend и командами
+```
 docker build -t {docker-login}/foodgram_frontend .
 docker build -t {docker-login}/foodgram_backend .
 docker build -t {docker-login}/foodgram_gateway .
+```
 **2. ### Пушим образы в Docker Hub:**
+```
 docker push {docker-login}/foodgram_frontend
 docker push {docker-login}/foodgram_backend
 docker push {docker-login}/foodgram_gateway
+```
 **3. ### Заходим на сервер устанавливаем Docker, nginx и создаем папку foodgram:**
 ```
 ssh -i C:/Users/{windows-login}/.ssh/vm_access/{login-cloud} {root-user}@{ip}
