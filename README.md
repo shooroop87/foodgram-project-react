@@ -138,7 +138,7 @@ POSTGRES_PASSWORD=foodgram_password
 DB_NAME=foodgram
 DB_HOST=db
 DB_PORT=5432
-DJANGO_SECRET_KEY=django-insecure-_i+y8x6!i-^6o5x()3p2$_nl5^44%(t1c69ai!&6oz#76s1c-+
+DJANGO_SECRET_KEY=<DJANGO_SECRET_KEY>
 DEBUG_VALUE=True
 DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 84.252.139.195 berlinweek.ru
 ```
