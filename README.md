@@ -112,7 +112,7 @@ server {
 mkdir foodgram
 ```
 **4. ### Копируем продуктинвый докер файл**
-Пример
+
 ```
 scp -i C:/Users/Andrey/.ssh/vm_access/yc-shooroop87 docker-compose.production.yml \
     yc-user@84.252.139.195:/home/yc-user/foodgram/docker-compose.production.yml
