@@ -116,6 +116,7 @@ scp -i C:/Users/Andrey/.ssh/vm_access/yc-shooroop87 docker-compose.production.ym
     yc-user@84.252.139.195:/home/yc-user/foodgram/docker-compose.production.yml
 ```
 **5. ### Cоздаём .env**
+```
 POSTGRES_DB=foodgram
 POSTGRES_USER=foodgram_user
 POSTGRES_PASSWORD=foodgram_password
@@ -125,8 +126,10 @@ DB_PORT=5432
 DJANGO_SECRET_KEY=django-insecure-_i+y8x6!i-^6o5x()3p2$_nl5^44%(t1c69ai!&6oz#76s1c-+
 DEBUG_VALUE=True
 DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 84.252.139.195 berlinweek.ru
+```
 
 В **settings.py** должно быть так:
+```
 import os
 from pathlib import Path
 
@@ -140,6 +143,7 @@ SECRET_KEY = str(os.getenv("DJANGO_SECRET_KEY"))
 DEBUG = os.getenv('DEBUG_VALUE') == 'True'
 
 ALLOWED_HOSTS = str(os.getenv("DJANGO_ALLOWED_HOSTS")).split(' ')
+```
 
 **6. ### На git в репозиторие в разделе Settings > Secrets and variables > Action Добавить следующие "секреты" по шаблону:**
 ```
