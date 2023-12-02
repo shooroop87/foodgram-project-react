@@ -162,7 +162,7 @@ TELEGRAM_TOKEN <токен вашего телеграм бота>
 git add .
 ```
 ```
-git commit -m '<текст коммита>'
+git commit -m "git foodgram v1"
 ```
 ```
 git push
